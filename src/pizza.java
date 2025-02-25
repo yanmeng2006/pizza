@@ -5,18 +5,58 @@ public class pizza{
     public long storePhone;
     public String storeMenu;
     public String pizzaIngredients;
-    private int pizzaPrice;  
+    public int pizzaPrice;  
     private String sides;
     private String drinks;
-    private int orderID;
+    private String orderID;
     private double orderTotal;
 
-    public void takeorder(int pizzaPrice,String sides,String drinks,String pizzaIngredients,int ID,double Total){
-        this.pizzaPrice=pizzaPrice;
+    public final String DEF_ORDER_ID="DEF-SOH-099";
+    public final String DEF_PIZZA_INGREDIENTS="Mozzarella Cheese";
+    public final double DEF_ORDER_TOTAL=15.00;
+
+    public pizza(String DEF_ORDER_ID, String DEF_PIZZA_INGREDIENTS, double DEF_ORDER_TOTAL, String sides, String drinks){
+        orderID = DEF_ORDER_ID;
+        pizzaIngredients = DEF_PIZZA_INGREDIENTS;
+        orderTotal = DEF_ORDER_TOTAL;
+        this.sides = sides;
+        this.drinks=drinks;
+    }
+
+    public void Pizza(String ID,String Ingredients,double Total){
+        this.orderID=ID;
+        this.pizzaIngredients=Ingredients;
+        this.orderTotal=Total;
+    }
+
+    public String getorderID(){
+        return orderID;
+    }
+    public void setorderID(String ID){
+        this.orderID=ID;
+    }
+
+    public String getpizzaingredients(){
+        return pizzaIngredients;
+    } 
+    public void setpizzaIngredients(String Ingredients){
+        this.pizzaIngredients=Ingredients;
+    } 
+
+    public double getorderTotal(){
+        return orderTotal;
+    }
+    public void setorderTotal(double Total){
+        this.orderTotal=Total;
+    }
+
+    public void takeorder(String ID,int price, String Ingredients, String sides, String drinks, double Total){
+        orderID=ID;
+        pizzaPrice=price;
+        pizzaIngredients=Ingredients;
         this.sides=sides;
         this.drinks=drinks;
-        this.orderID=ID;
-        this.orderTotal=Total;
+        orderTotal=Total;
 
         System.out.println("Order accepted!");
 
@@ -39,8 +79,8 @@ public class pizza{
     private void printReceipt(){
         System.out.println("********RECEIPT********");
         System.out.println("OrderID:"+ orderID);
-        System.out.println("Details:"+sides+drinks+ pizzaPrice+" ponds");
-        System.out.println("Order Total:"+ orderTotal+" ponds");
+        System.out.println("Details:"+sides+drinks);
+        System.out.println("Order Total:"+ orderTotal);
     }
 
 }

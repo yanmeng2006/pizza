@@ -1,7 +1,8 @@
 public class App{
     public static void main(String[] args) throws Exception{
-        pizza pizza = new pizza();
-        pizza.takeorder(15,"6 inch,","juice,","Pepperoni,Tomato,Susagge,Cheese",1234,15.00);
+        pizza pizza =new pizza("DEF-S0H-899", "Mozzarella cheese", 15.08, "6-inch", "cola");
+        pizza.takeorder("DEF-S0H-099",15,"Mozzarella cheese","6-inch", "cola", 15.00);
+
     }
 }
     
