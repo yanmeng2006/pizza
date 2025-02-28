@@ -15,6 +15,53 @@ public class pizza{
     public final String DEF_PIZZA_INGREDIENTS="Mozzarella Cheese";
     public final double DEF_ORDER_TOTAL=15.00;
 
+    public int cvv;
+    public String cardNumber;
+    public String expiryDate;
+    public int cardLength;
+    public int firstCardDigit;
+    public int lastFourDigit;
+    public String blacklistedNumber="12345678987654";
+    private String cardNumberToDisplay;
+
+    public StringBuilder pizzaOfTheDay;
+    public StringBuilder sideOfTheDay;
+    public StringBuilder specialPrice;
+
+    public void processCardPayment(String cardNumber){
+        this.cardNumber=cardNumber;
+
+        cardLength=cardNumber.length();
+        if (cardLength==14) {
+            System.out.println("Card accepted");
+        } else{
+            System.out.println("Card declined");
+        }
+
+        
+        if (cardNumber.equals(blacklistedNumber)){
+            System.out.println("Card is blacklisted. Please use another card");
+        }else{
+            System.out.println("Card accepted");
+        }
+        firstCardDigit=Integer.parseInt(cardNumber.substring(0, 1));
+        lastFourDigit=Integer.parseInt(cardNumber.substring(10, 13));
+        cardNumberToDisplay=firstCardDigit+"*********"+lastFourDigit;
+        System.out.println("Card number is:"+ cardNumberToDisplay);
+    }
+
+    public void specialOfTheDay(StringBuilder pizzaOfTheDay,StringBuilder sideOfTheDay,StringBuilder specialPrice){
+        this.pizzaOfTheDay=pizzaOfTheDay;
+        this.sideOfTheDay=sideOfTheDay;
+        this.specialPrice=specialPrice;
+
+        System.out.println("**********************");
+        System.out.println("Pizza of the day is:"+ pizzaOfTheDay);
+        System.out.println("Side of the day is:"+ sideOfTheDay);
+        System.out.println("Special price is:"+ specialPrice);
+
+    }
+
     public pizza(String DEF_ORDER_ID, String DEF_PIZZA_INGREDIENTS, double DEF_ORDER_TOTAL, String sides, String drinks){
         orderID = DEF_ORDER_ID;
         pizzaIngredients = DEF_PIZZA_INGREDIENTS;
