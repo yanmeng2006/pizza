@@ -45,7 +45,7 @@ public class pizza{
             System.out.println("Card accepted");
         }
         firstCardDigit=Integer.parseInt(cardNumber.substring(0, 1));
-        lastFourDigit=Integer.parseInt(cardNumber.substring(10, 13));
+        lastFourDigit=Integer.parseInt(cardNumber.substring(10, 14));
         cardNumberToDisplay=firstCardDigit+"*********"+lastFourDigit;
         System.out.println("Card number is:"+ cardNumberToDisplay);
     }
